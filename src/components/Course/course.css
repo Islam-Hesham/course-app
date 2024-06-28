@@ -1,0 +1,65 @@
+.card {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  }
+  
+  .card-body  {
+    background-color: #f3f4f6;
+  
+  }
+  
+  .card-btn {
+    background-color: #203068 !important;
+    color: white !important;
+    border: 2px solid #203068 !important;
+  }
+  
+  .card-btn:hover {
+    background-color: transparent !important;
+    border: 2px solid #203068 !important;
+    color: #203068 !important;
+  }
+
+  .course-card{
+    width: 30%;
+  }
+
+  .courseCard{
+    width: 95%;
+    margin: auto;
+    max-height: 400 !important;
+    min-height: 400 !important;
+
+  }
+  
+  
+  .img-card:hover img {
+    transform: scale(1.1);
+    transition: all 0.3s ease-in-out;
+  
+  }
+  
+  
+  .hr-card {
+    margin: auto;
+    height: 2px;
+    width: 20%;
+    background-color: #1434a4;
+    animation: width-animate 2s ease infinite alternate;
+  }
+  
+  @keyframes width-animate {
+    0% {
+      transform: scaleX(1.5);
+    }
+  
+    100% {
+      transform: scaleX(0);
+    }
+  }
+  
+
+  /* .card-btn {
+    background-color: #203068;
+    color: white;
+    border: 2px solid #203068;
+  } */

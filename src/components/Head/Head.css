@@ -1,0 +1,139 @@
+#home {
+  margin-top: 106px;
+  background-image: url(../../../public/imgs/bg.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  padding: 20px 0 120px 0;
+}
+
+
+
+.head-img {
+  width: 50%;
+  border-radius: 50%;
+
+}
+
+.head-img img {
+  width: 100%;
+  /* object-fit: fill; */
+  border-radius: 50%;
+}
+
+.vh-fix {
+  height: calc(100vh - 106px);
+}
+
+.pulse {
+  animation: pulse-animation 2s infinite;
+}
+
+@keyframes pulse-animation {
+  0% {
+    box-shadow: 0 0 0 0px rgba(32, 48, 104, 0.5);
+  }
+
+  100% {
+    box-shadow: 0 0 0 20px rgba(32, 48, 104, 0);
+  }
+}
+
+.fa-chevron-down {
+  font-size: 2.25rem;
+  color: #1434a4;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  animation: arrow-movement 1s infinite ease-out;
+}
+
+@keyframes arrow-movement {
+  0% {
+    bottom: 3.75rem;
+  }
+
+  100% {
+    bottom: 1.25rem;
+  }
+}
+
+header h2 {
+  font-size: clamp(3rem, 4.7vw, 4.5rem);
+  font-weight: 900;
+}
+
+
+@keyframes typing {
+  0% {
+    content: 'أ';
+  }
+
+  7% {
+    content: 'أ/';
+  }
+
+  14% {
+    content: 'أ/ج';
+  }
+
+  21% {
+    content: 'أ/جم';
+  }
+
+  28% {
+    content: 'أ/جما';
+  }
+
+  35% {
+    content: 'أ/جمال';
+  }
+
+  42% {
+    content: 'أ/جمال ع';
+  }
+
+  49% {
+    content: 'أ/جمال عب';
+  }
+
+  56% {
+    content: 'أ/جمال عبد ';
+  }
+
+  63% {
+    content: 'أ/جمال عبدا';
+  }
+
+  70% {
+    content: 'أ/جمال عبدال';
+  }
+
+  77% {
+    content: 'أ/جمال عبدالن';
+  }
+
+  84% {
+    content: 'أ/جمال عبدالنا';
+  }
+
+  91% {
+    content: 'أ/جمال عبدالناص';
+  }
+
+  100% {
+    content: 'أ/جمال عبدالناصر';
+  }
+}
+
+header p {
+  font-size: clamp(1.5rem, 3.75vw, 3rem);
+  color: #1434a4;
+  /*text-shadow: 2px 2px 4px #000000;*/
+}
+
+header p::before {
+  content: '';
+  animation: typing 10s infinite;
+  -webkit-animation: typing 10s infinite;
+}

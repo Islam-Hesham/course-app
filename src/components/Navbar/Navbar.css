@@ -1,0 +1,44 @@
+.navbar-collapse,
+.navbar-nav {
+  width: fit-content;
+}
+
+.navbar-nav > li > a:hover {
+  color: var(--clr-black-main);
+}
+
+#dropdown-basic{
+  background-color: #203068;
+  color: #fff;
+  padding: 7px 20px;
+  font-size: 1rem;
+}
+
+.navbar-nav > li >a::before {
+  content: '';
+  width: 0%;
+  height: 2px;
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+  background-color: #1434a4;
+  transition: width 2s;
+ 
+}
+
+.navbar-nav > li > a:hover::before {
+  width: calc(100% - 32px);
+}
+
+.nav-item a {
+  font-size: 16px;
+}
+#naVBar.scrolled {
+  border-bottom: 5px solid #203068 !important;
+  box-shadow: 0 5px 10px rgba(122, 121, 121, 0.5) !important;
+}
+.text-nav{
+  font-weight: 600;
+}
+
+

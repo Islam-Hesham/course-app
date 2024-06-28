@@ -1,0 +1,75 @@
+footer {
+  color: white;
+  background-color: #203068;
+}
+
+i {
+  color: #203068;
+  font-size: 18px;
+  transition: color 1s;
+}
+
+.fa-brands,
+.fab {
+  font-weight: 400;
+}
+
+
+
+.end {
+  background-color: rgba(32, 48, 104, 0.9);
+}
+
+.fh-footer {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 20px;
+  color: #203068;
+}
+
+
+
+
+
+footer p {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: rgb(176, 176, 176);
+  transition: all 0.3s;
+}
+
+
+
+
+
+
+.social-footer i {
+  margin: 0 15px;
+  font-size: 20px;
+
+  color: #fff;
+
+  transition: all 0.3s;
+}
+
+.social-footer i:hover,
+.copy a:hover {
+  color: #f0d826;
+}
+
+.copy {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16px;
+  color: rgb(176, 176, 176);
+}
+
+.copy a {
+  color: #fff;
+
+  font-weight: 600;
+
+  transition: all 0.3s;
+  text-decoration: none;
+}
