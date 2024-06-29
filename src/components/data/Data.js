@@ -9,7 +9,7 @@ function Data() {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const response = await axios.get("https://lms.gamal-abdelnasser.com/homeData");
+        const response = await axios.get("http://localhost:5000/homeData");
         console.log(response);
         setData(response.data.data);
       } catch (error) {

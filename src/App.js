@@ -19,7 +19,7 @@ function App() {
 
   useEffect(() => {
     // console.log(token);
-   document.addEventListener("contextmenu", (event) => event.preventDefault());
+  //  document.addEventListener("contextmenu", (event) => event.preventDefault());
 
     const handleScroll = () => {
       const isScrolled = window.scrollY > 0;

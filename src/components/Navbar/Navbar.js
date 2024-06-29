@@ -32,7 +32,7 @@ const NavbarComponent = ({ scroll }) => {
 
   const handleLogout = async () => {
     try {
-      await axios.delete("https://lms.gamal-abdelnasser.com/logout", {
+      await axios.delete("http://localhost:5000/logout", {
         headers: {
           Authorization: `Bearer ${getCookie("token")}`,
         },
@@ -107,7 +107,7 @@ const NavbarComponent = ({ scroll }) => {
                 className="nav-link fw-semibold p-3 position-relative overflow-hidden"
                 onClick={() => scrollToSection("events")}
               >
-                تواصل معانا
+                تواصل معنا
               </Link>
             </li>
           </ul>

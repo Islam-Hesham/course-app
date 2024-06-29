@@ -111,3 +111,10 @@
       margin-top: 15px;
     }
   }
+
+  .class-select {
+    border: none !important;
+    border-bottom: 1px solid !important;
+    border-radius: 0 !important;
+    margin-top: 9px !important;
+  }

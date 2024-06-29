@@ -11,7 +11,7 @@ function MyCourses() {
       const fetchCourses = async () => {
         try {
           setLoading(true)
-          const response = await axios.get("https://lms.gamal-abdelnasser.com/user-courses" , {
+          const response = await axios.get("http://localhost:5000/user-courses" , {
             headers: {
                 Authorization: `Bearer ${getCookie("token")}`, // Add the token to the request header
               },
@@ -52,7 +52,7 @@ function MyCourses() {
   
     <div class="container pt-5">
         <div class="row g-4">
-
+        {/* <a href="/#events">Contact</a> */}
         {courses?.map((course) => (
             <div className="col-lg-4 col-md-6" key={course.id}>
               <div className="card courseCard border-0">

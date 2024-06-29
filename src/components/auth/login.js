@@ -14,7 +14,7 @@ function Login() {
   const handleLogin = async () => {
     try {
       // Make a request to your login endpoint
-      const response = await axios.post('https://lms.gamal-abdelnasser.com/login', {
+      const response = await axios.post('http://localhost:5000/login', {
         email,
         password,
       });

@@ -6,7 +6,7 @@ import useCookies from '../../cookies';
 function CourseHead({ course }) {
   const { cookies, setCookie, getCookie , removeCookie} = useCookies();
   const handleEnroll = async()=>{
-        axios.post(`https://lms.gamal-abdelnasser.com/courses/enroll/${course.id}`, null , {
+        axios.post(`http://localhost:5000/courses/enroll/${course.id}`, null , {
             headers: {
               Authorization: `Bearer ${getCookie("token")}`, // Add the token to the request header
             },
@@ -26,9 +26,12 @@ function CourseHead({ course }) {
             });
             // setSections(response.data.data); // Set the fetched courses to the state
           })
-          .catch(error => {
-          toast.error("حدثت مشكلة حاول مرة اخري ")
-            console.error("Error fetching courses:", error);
+          .catch(err => {
+            if (err.response.data.status_code == 401) {
+              toast.error("يجب عليك تسجيل الدخول اولا ");
+            } else {
+              toast.error("حدثت مشكلة حاول  مرة اخري");
+            }
           });
        
      

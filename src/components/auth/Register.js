@@ -4,6 +4,8 @@ import axios from "axios";
 import { Link , useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Form from 'react-bootstrap/Form';
+
 function Register() {
   const navigate = useNavigate();
   const [isRegistered, setIsRegistered] = useState(false);
@@ -13,17 +15,20 @@ function Register() {
     email: '',
     password: '',
     phone: '',
-    parentPhone: ''
+    parentPhone: '' ,
+    gover: '',
+    class : 'الاول'
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    console.log(name , value);
     setFormData({ ...formData, [name]: value });
   };
-
+  // https://lms.gamal-abdelnasser.com/sign-up
   const handleSubmit = async () => {
     try {
-      const response = await axios.post('https://lms.gamal-abdelnasser.com/sign-up', formData);
+      const response = await axios.post('http://localhost:5000/sign-up', formData);
       console.log('Registration successful:', response.data);
       setFormData({
         firstName: '',
@@ -31,7 +36,9 @@ function Register() {
     email: '',
     password: '',
     phone: '',
-    parentPhone: ''
+    parentPhone: '',
+gover : "" ,
+year :"الاول"
 
 
       });
@@ -132,6 +139,43 @@ function Register() {
                     // pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
                   />
                 </div>
+
+                
+              </div>
+
+              <div className="d-flex">
+                <div className="form-group">
+                  <label for="gover">المحافظة</label>
+                  <input
+                    type="text"
+                    id="gover"
+                    name="gover"
+                
+                    value={formData.gover}
+                    onChange={handleChange}
+                    className="form-control"
+                    // pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+                  />
+                </div>
+                <div className="form-group w-50">
+                  <label for="class">الصف</label>
+                  {/* <input
+                    type="tel"
+                    id="phone"
+                    name="parentPhone"
+                  value={formData.parentPhone}
+                  onChange={handleChange}
+                    className="form-control"
+                    // pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+                  /> */}
+                   <Form.Select className="class-select w-100" name="year" value={formData.class} onChange={handleChange} aria-label="Default select example">
+      <option value="الاول">الاول</option>
+      <option value="الثاني">الثاني</option>
+      <option value="الثالث">الثالث</option>
+    </Form.Select>
+                </div>
+
+                
               </div>
 
               <div className="form-group">

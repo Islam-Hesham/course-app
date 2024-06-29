@@ -192,7 +192,7 @@ function Courses() {
     const fetchCourses = async () => {
       try {
         setLoading(true)
-        const response = await axios.get("https://lms.gamal-abdelnasser.com/courses");
+        const response = await axios.get("http://localhost:5000/courses");
         console.log(response);
         setCourses(response.data.data);
         setLoading(false)

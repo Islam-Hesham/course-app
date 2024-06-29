@@ -21,7 +21,7 @@ const { cookies, setCookie, getCookie } = useCookies();
 
   async function handleShow(breakpoint, id) {
     axios
-      .get(`https://lms.gamal-abdelnasser.com/vedioes/${id}`, {
+      .get(`http://localhost:5000/vedioes/${id}`, {
         headers: {
           Authorization: `Bearer ${getCookie("token")}`,
         },
@@ -44,7 +44,7 @@ const { cookies, setCookie, getCookie } = useCookies();
     setLoading(true)
     // Fetch course data based on the id
     axios
-      .get(`https://lms.gamal-abdelnasser.com/courses/${id}`)
+      .get(`http://localhost:5000/courses/${id}`)
       .then((response) => {
         setCourseData(response.data.data);
         setLoading(false)
