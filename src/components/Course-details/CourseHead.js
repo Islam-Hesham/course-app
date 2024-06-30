@@ -42,7 +42,12 @@ function CourseHead({ course }) {
       <section className="course-details py-5">
 <div className="container">
           <div className="row">
-            <div className="head-item  col-md-6 col-sm-12 text-start  text-black rounded-2">
+          <div className="headimg col-lg-5 me-lg-5 col-sm-12 ">
+              <div className="card me-auto w-100 border-0 shadow-lg">
+                <img src={course?.img} className="card-img-top w-100" height={250} alt="..." />
+              </div>
+            </div>
+            <div className="head-item col-md-6 col-sm-12 text-start  text-black rounded-2">
               <h2 className="py-2">{course?.title}</h2>
               <p className="course-desc text-muted">{course?.discreption}</p>
 
@@ -72,11 +77,7 @@ function CourseHead({ course }) {
                 <button onClick={handleEnroll} className="btn enroll">اشترك الان</button>
               </div>
             </div>
-            <div className="headimg col-lg-5 ms-lg-5 col-sm-12 ">
-              <div className="card ms-auto w-100 border-0 shadow-lg">
-                <img src={course?.img} className="card-img-top w-100" height={250} alt="..." />
-              </div>
-            </div>
+          
           </div>
 </div>
     

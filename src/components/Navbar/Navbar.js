@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Navbar, Nav, Container, Dropdown } from "react-bootstrap";
 import useCookies from "../../cookies";
 import axios from "axios";
@@ -11,6 +11,9 @@ const NavbarComponent = ({ scroll }) => {
   const { cookies, setCookie, getCookie, removeCookie } = useCookies();
   const [auth, setAuth] = useState(false);
   const [user, setUser] = useState({});
+  const location = useLocation()
+  const isHomePage = location.pathname === '/';
+
 
   useEffect(() => {
     const token = getCookie("token");
@@ -21,6 +24,8 @@ const NavbarComponent = ({ scroll }) => {
     } else {
       setAuth(false);
     }
+
+  
   }, []);
 
   const scrollToSection = (id) => {
@@ -29,7 +34,6 @@ const NavbarComponent = ({ scroll }) => {
       section.scrollIntoView({ behavior: "smooth" });
     }
   };
-
   const handleLogout = async () => {
     try {
       await axios.delete("http://localhost:5000/logout", {
@@ -90,7 +94,8 @@ const NavbarComponent = ({ scroll }) => {
                 الرئيسية
               </Link>
             </li>
-            <li className="nav-item">
+            {isHomePage && ( <>
+              <li className="nav-item">
               <Link
                 className="nav-link fw-semibold p-3 position-relative overflow-hidden"
                 onClick={() => scrollToSection("Blog")}
@@ -109,7 +114,8 @@ const NavbarComponent = ({ scroll }) => {
               >
                 تواصل معنا
               </Link>
-            </li>
+            </li> </>) }
+           
           </ul>
           <Nav>
             {auth ? (
