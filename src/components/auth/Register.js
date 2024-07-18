@@ -17,7 +17,7 @@ function Register() {
     phone: '',
     parentPhone: '' ,
     gover: '',
-    class : 'الاول'
+    year : 'الاول'
   });
 
   const handleChange = (e) => {
@@ -38,7 +38,7 @@ function Register() {
     phone: '',
     parentPhone: '',
 gover : "" ,
-year :"الاول"
+year :""
 
 
       });
