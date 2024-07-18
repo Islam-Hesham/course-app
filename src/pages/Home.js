@@ -8,7 +8,7 @@ import Info from '../components/info/Info'
 import Contact from '../components/Contact/Contact';
 function Home({infoScroll}) {
   return (
-    <div>
+    <div className="">
        
       <Head/>
       <Courses/>

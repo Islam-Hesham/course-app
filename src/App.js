@@ -18,19 +18,15 @@ function App() {
   const [infoScroll, setInfoScroll] = useState(false);
 
   useEffect(() => {
-    // console.log(token);
-   document.addEventListener("contextmenu", (event) => event.preventDefault());
-
     const handleScroll = () => {
       const isScrolled = window.scrollY > 0;
       setScrolled(isScrolled);
-
       handleInfoScroll();
     };
 
     const handleInfoScroll = () => {
-      if (window.scrollY > 300) {
-        setInfoScroll(window.scrollY > 300);
+      if (window.scrollY > 600) {
+        setInfoScroll(window.scrollY > 600);
       }
     };
 

@@ -1,6 +1,10 @@
 footer {
   color: white;
   background-color: #203068;
+  /* position: absolute;
+  bottom: 0;
+  width: 100%; */
+
 }
 
 i {
@@ -17,7 +21,8 @@ i {
 
 
 .end {
-  background-color: rgba(32, 48, 104, 0.9);
+  background-color: rgba(32, 48, 104, 0.5);
+  border-top:.5px solid #f0d826 ;
 }
 
 .fh-footer {

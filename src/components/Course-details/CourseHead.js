@@ -5,42 +5,19 @@ import Swal from "sweetalert2";
 import useCookies from '../../cookies';
 function CourseHead({ course }) {
   const { cookies, setCookie, getCookie , removeCookie} = useCookies();
-  const handleEnroll = async()=>{
-        axios.post(`http://localhost:5000/courses/enroll/${course.id}`, null , {
-            headers: {
-              Authorization: `Bearer ${getCookie("token")}`, // Add the token to the request header
-            },
-          })
-          .then(response => {
-            Swal.fire({
-              title: ' تم تسجيل طلبك بنجاح ',
-              text: `  قم بارسال ايصال دفع اورنج كاش مع الايميل الخاص بك علي رقمنا علي الواتساب و سيتم تفعيل الكورس  
-            `,
-              icon: 'success',
-              className: 'join',
-          
-              confirmButtonText: 'حسنا',
-            
-              timer: 15000000000000,
-              showCloseButton: true,
-            });
-            // setSections(response.data.data); // Set the fetched courses to the state
-          })
-          .catch(err => {
-            if (err.response.data.status_code == 401) {
-              toast.error("يجب عليك تسجيل الدخول اولا ");
-            } else {
-              toast.error("حدثت مشكلة حاول  مرة اخري");
-            }
-          });
-       
-     
-
-    }
+ 
   return (
-    <div>
-      <section className="course-details py-5">
-<div className="container">
+    <div className="head-color">
+      <section className="course-details container py-5">
+        <div className="row py-3">
+          <div className="col-md-8 offset-md-4 ">
+          <h2 className="py-2 w-100 ">{course?.title}</h2>
+          <p className="w-100 text-muted">{course?.discreption}</p>
+          </div>
+         </div>
+     
+      
+{/* <div className="container">
           <div className="row">
           <div className="headimg col-lg-5 me-lg-5 col-sm-12 ">
               <div className="card me-auto w-100 border-0 shadow-lg">
@@ -79,7 +56,7 @@ function CourseHead({ course }) {
             </div>
           
           </div>
-</div>
+</div> */}
     
       </section>
 

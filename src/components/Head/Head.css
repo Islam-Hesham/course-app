@@ -3,11 +3,9 @@
   background-image: url(../../../public/imgs/bg.jpeg);
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: top center;
+  background-position:  center;
   padding: 20px 0 120px 0;
 }
-
-
 
 .head-img {
   width: 50%;
@@ -40,11 +38,11 @@
 }
 
 .fa-chevron-down {
-  font-size: 2.25rem;
+  font-size: 3.25rem;
   color: #1434a4;
   position: absolute;
   left: 50%;
-  transform: translate(-50%);
+  transform: translate(-50% , -50%);
   animation: arrow-movement 1s infinite ease-out;
 }
 
@@ -59,7 +57,8 @@
 }
 
 header h2 {
-  font-size: clamp(3rem, 4.7vw, 4.5rem);
+  /* font-size: clamp(3rem, 4.7vw, 4.5rem); */
+  font-size: 3.5rem;
   font-weight: 900;
 }
 

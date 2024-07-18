@@ -39,20 +39,19 @@ function MyCourses() {
 <div>
       <div
         class="mycourse"
-        style={{ marginTop: "106px" }}
-        className="course-details py-5"
+        // style={{ marginTop: "106px" }}
+        className="course-details"
       >
-        <div class="container-fluid">
+        <div class="container-fluid py-5 bg-light">
           <h1 class="text-center mb-3">كورساتي</h1>
           <div class="hr-card"></div>
         </div>
       </div>
 
-      <div class="py-5 w-100" id="courses"> 
+      <div class="py-4 w-100" id="courses"> 
   
-    <div class="container pt-5">
+    <div class="container">
         <div class="row g-4">
-        {/* <a href="/#events">Contact</a> */}
         {courses?.map((course) => (
             <div className="col-lg-4 col-md-6" key={course.id}>
               <div className="card courseCard border-0">
@@ -68,21 +67,22 @@ function MyCourses() {
                   <div className="hr-card"></div>{" "}
                   <p className="card-text mt-2">{course?.discreption}</p>{" "}
                   <hr />
-                  <div className="d-flex justify-content-between align-items-center">
+                  {/* <div className="d-flex justify-content-between align-items-center">
                     <p className="mb-0">
+                    <i className="fa fa-solid fa-layer-group"></i>
                       <span className="d-inline-block ms-2">
                       {course?.sections?.length} 
                       وحدة 
                       </span>
-                      <i className="fa-solid fa-layer-group"></i>{" "}
+                      
                     </p>
                  
-                  </div>
-                  <hr />
+                  </div> */}
+                  {/* <hr /> */}
                   <div>
                     <Link
                       to={`/course/${course.id}`}
-                      className="btn card-btn "
+                      className="btn card-btn btn-sm px-5"
                       role="button"
                     >
                       الدخول للكورس

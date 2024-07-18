@@ -36,7 +36,7 @@ function Data() {
             <div className="col-lg-4">
              <div className="w-95 bg-BABYbluee m-auto d-flex gap-2 flex-column justify-content-center align-items-center rounded py-5">
 
-              <i className="fa-solid fa-video fs-2"></i>
+             <i class="fas fa-solid fa-video fs-2"></i>
               <p className="text-dark fs-3 m-0">فيديو</p>
               {/* <h3 className="fw-semibold fs-3 m-0">+120</h3> */}
               <h3 className="fw-semibold fs-3 m-0">{data?.vedioes < 10 ? "+20" : "+" +  data?.vedioes}</h3>
@@ -45,7 +45,7 @@ function Data() {
             <div className="col-lg-4">
              <div className="w-95 bg-BABYpink m-auto d-flex gap-2 flex-column justify-content-center align-items-center rounded py-5">
 
-              <i className="fa-solid fa-file fs-2"></i>
+              <i className="fa fa-solid fa-file fs-2"></i>
               <p className="text-dark fs-2 m-0">كورس</p>
               <h3 className="fw-semibold fs-3 m-0">{data?.courses < 3 ? "+5" : "+" +  data?.courses}</h3>
             </div>

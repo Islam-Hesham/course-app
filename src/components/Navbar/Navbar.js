@@ -8,7 +8,7 @@ import './Navbar.css';
 
 const NavbarComponent = ({ scroll }) => {
   const navigate = useNavigate();
-  const { cookies, setCookie, getCookie, removeCookie } = useCookies();
+  const { getCookie, removeCookie } = useCookies();
   const [auth, setAuth] = useState(false);
   const [user, setUser] = useState({});
   const location = useLocation()
@@ -62,7 +62,7 @@ const NavbarComponent = ({ scroll }) => {
     >
       <Container fluid>
        <Navbar.Brand as={Link} to="/" >
-  <img src="/imgs/333.jpeg" alt="atom" width="90" height="90" style={{ marginRight: '10px' }} />
+  <img src="/imgs/333.jpeg" alt="atom" width="60" height="60" style={{ marginRight: '10px' }} />
   <span className="text-nav">البروفسير في الكيمياء</span>
 </Navbar.Brand>
 
@@ -119,8 +119,8 @@ const NavbarComponent = ({ scroll }) => {
           </ul>
           <Nav>
             {auth ? (
-              <Dropdown>
-                <Dropdown.Toggle variant="" id="dropdown-basic">
+              <Dropdown className="p-0">
+                <Dropdown.Toggle variant="" id="dropdown-basic" className="p-0 px-3 py-1">
                   {user?.firstName}
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
