@@ -1,17 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import useCookies from "../../cookies";
 import "./CourseDetails.css";
-import { VideoPlayer } from "6pp";
+
 import Accordion from "react-bootstrap/Accordion";
 import CourseHead from "./CourseHead";
 import { toast } from "react-toastify";
-import Badge from "react-bootstrap/Badge";
-import Alert from "react-bootstrap/Alert";
-import { Video } from "reactjs-media";
+
 
 import Swal from "sweetalert2";
 function CourseDetails() {
@@ -19,22 +16,14 @@ function CourseDetails() {
   const [courseData, setCourseData] = useState(null);
   const [video, setVideo] = useState(null);
   const [quiz, setQuiz] = useState(null);
-  // const [fullscreen, setFullscreen] = useState(true);
-  const [show, setShow] = useState(false);
+ 
   const [isQuiz, setIsQuiz] = useState(false);
   const [loading, setLoading] = useState(false);
-  // const { getCookie, removeCookie } = useCookies();
+  const { getCookie } = useCookies();
   const [auth, setAuth] = useState(false);
-  const [quality, setQuality] = useState(480);
-  const { cookies, setCookie, getCookie } = useCookies();
-  const [submitted, setSubmitted] = useState(false);
-  const [score, setScore] = useState(0);
   const [answers, setAnswers] = useState([]);
-  // const [videoPath, setVideoPath] = useState(null);
 
-  const youtubeEmbedRegex =
-    /^https:\/\/www\.youtube\.com\/embed\/[a-zA-Z0-9_-]+(\?.*)?$/;
-  // const [path , setPath] = useState("")
+
   const handleAnswerSelect = (questionId, choiceId) => {
     const newAnswers = [...answers];
     const existingAnswer = newAnswers.find(
@@ -71,8 +60,8 @@ function CourseDetails() {
       )
       .then((response) => {
         console.log(response.data.data);
-        setScore(response.data.data.score);
-        setSubmitted(true);
+        // setScore(response.data.data.score);
+       
         resetQuiz();
         toast.success("تم ارسال اجاباتك");
       })
@@ -92,10 +81,7 @@ function CourseDetails() {
       .then((response) => {
         setVideo(response.data.data);
         scrollToPlayer();
-        // console.log(youtubeEmbedRegex.test(response.data.data));
-
-        // setFullscreen(breakpoint);
-        // setShow(true);
+      
       })
       .catch((err) => {
         console.log(err.response.data, err.response.data.status_code);
@@ -188,31 +174,7 @@ function CourseDetails() {
     return totalVideos;
   }
 
-  // function calculateCourseAndSectionDurations(course) {
-  //   let totalCourseDuration = 0;
-  //   const sectionDurations = {};
 
-  //   // Iterate through each section
-  //   course.sections?.forEach(section => {
-  //     let sectionDuration = 0;
-
-  //     // Iterate through each video in the section
-  //     section.vedioes.forEach(vedio => {
-  //       // Add the duration of the video to sectionDuration and totalCourseDuration
-  //       sectionDuration += vedio.duration;
-  //       totalCourseDuration += vedio.duration;
-  //     });
-
-  //     // Store section duration in sectionDurations object
-  //     sectionDurations[section.title] = sectionDuration;
-  //   });
-
-  //   // Return an object with total course duration and section durations
-  //   return {
-  //     totalCourseDuration: formatDuration(totalCourseDuration),
-  //     sectionDurations
-  //   };
-  // }
   const [currentStep, setCurrentStep] = useState(1);
   const handleNext = () => {
     setCurrentStep((prevStep) =>
@@ -224,7 +186,6 @@ function CourseDetails() {
     setCurrentStep((prevStep) => (prevStep > 1 ? prevStep - 1 : prevStep));
   };
 
-  console.log("statte" , video);
 
   // Reset the quiz and modal data
   const resetQuiz = () => {
@@ -252,9 +213,10 @@ function CourseDetails() {
       })
       .catch((err) => {
         setLoading(false);
-        toast.error("حدثت مشكلة حاول  مرة اخري");
+
+        toast.error( err.response.data.status_code === 404 ? err.response.data.message : "حدثت مشكلة حاول  مرة اخري");
       });
-  }, [id]);
+  }, [id] );
   const [activeIndex, setActiveIndex] = useState(null);
   const handleEnroll = async () => {
     axios
@@ -263,7 +225,7 @@ function CourseDetails() {
           Authorization: `Bearer ${getCookie("token")}`, // Add the token to the request header
         },
       })
-      .then((response) => {
+      .then(() => {
         Swal.fire({
           title: " تم تسجيل طلبك بنجاح ",
           text: `  قم بارسال ايصال دفع اورنج كاش مع الايميل الخاص بك علي رقمنا علي الواتساب و سيتم تفعيل الكورس  
@@ -286,13 +248,10 @@ function CourseDetails() {
         }
       });
   };
-  const handleClick = (index) => {
-    setActiveIndex(activeIndex === index ? null : index);
-  };
-  console.log(courseData?.sections);
-  console.log(
-    courseData?.sections[0]?.vedioes[0]?.Quizzes[0]?.Questions.length
-  );
+  // const handleClick = (index) => {
+  //   setActiveIndex(activeIndex === index ? null : index);
+  // };
+
   return (
     <>
       {loading && (
@@ -459,7 +418,7 @@ className="w-100"
                       </Accordion.Header>
                       <Accordion.Body className="p-0">
                         <ul className="list-unstyled m-0">
-                          {section?.vedioes.length === 0 && (
+                          {section?.vedioes?.length === 0 && (
                             <li className="py-3">
                               <p className="unite-num d-inline text-muted px-2">
                                 سيتم رفع فيديوهات قريبا ...{" "}
@@ -479,9 +438,9 @@ className="w-100"
                                 <span className=" duration  badge-span ms-2">
                                   {formatDuration(lesson.duration)}
                                 </span>
-                                {lesson?.Quizzes?.length !== 0 ? (
+                                {lesson?.Quiz ? (
                                   <span className=" ms-2 question cursor badge-span ">
-                                    {lesson.Quizzes[0]?.Questions.length} اسئلة{" "}
+                                    {lesson?.Quiz?.Questions?.length} اسئلة{" "}
                                   </span>
                                 ) : (
                                   ""
